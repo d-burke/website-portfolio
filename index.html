@@ -6,25 +6,34 @@
 
 body {
   margin: 0;
+  overflow: hidden;
+  position: absolute;
+  top: 0; right: 0; bottom: 0; left: 0;
+  -webkit-perspective: 150px; /* Chrome, Safari, Opera  */
+  perspective: 400px;
 }
 
-a:link {
+div {
+  transition: all .33s ease-in-out;
+}
+
+.navbar a:link {
   text-decoration: none;
   color:inherit;
 }
-a:visited {
+.navbar a:visited {
   text-decoration: none;
   color:inherit;
 }
-a:hover {
+.navbar a:hover {
   text-decoration: none;
   color:inherit;
 }
-a:active {
+.navbar a:active {
   text-decoration: none;
   color:inherit;
 }
-a:focus {
+.navbar a:focus {
   text-decoration: none;
   color:inherit;
 }
@@ -60,6 +69,45 @@ font-size: 25px;
   }
 }
 
+
+
+#desk {
+  position: absolute;
+  left: 0%;
+  top: 35%;
+  height: 50%;
+  width: 100%;
+  background-image: url("desktexture.png");
+  background-size: cover;
+  z-index: 10;
+  background-color: #B46E28;
+/*  border: 5px solid  #743E08;*/
+  -webkit-transform: rotateX(50deg);
+  transform: rotateX(50deg);
+}
+
+
+.resume {
+  position: absolute;
+  left: 50%;
+  top: 60%;
+  height: 20%;
+  width: 10%;
+  border: 3px solid black;
+  -webkit-transform: rotateX(50deg);
+  transform: rotateX(50deg);
+  z-index: 50;
+/*  transition: all .33s ease-in-out;
+*//*  transform: scale(0.8, 0.8);*/
+}
+.resume:hover {
+  transform: scale(1.3, 1.3);
+/*  height: 40%;
+  width: 20%;*/
+  box-shadow: 0px 20px 50px #aaaaaa;
+  z-index: 99;
+}
+
 </style>
   <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
 </head>
@@ -72,6 +120,17 @@ font-size: 25px;
   <li><a href="https://www.linkedin.com/in/dan-burke/" target="_blank">LinkedIn</a></li>
 </ul>
 </div>
+
+ <div id="desk"></div>
+
+
+<div id="resume" class="resume">
+<object data="DanBurke_Resume.pdf#scrollbar=0&toolbar=0&view=fitBH" type="application/pdf" height="100%" width="100%">
+</object>
+</div>
+
+
+
 
 <script>
 </script>
