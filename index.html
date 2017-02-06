@@ -11,6 +11,7 @@ body {
   overflow: hidden;
   position: absolute;
   top: 0; right: 0; bottom: 0; left: 0;
+  background-color: #286EB4;
   /*-webkit-perspective: 150px;*//*  Chrome, Safari, Opera  */
 /*  perspective: 400px;*/
 }
@@ -67,6 +68,10 @@ font-size: 25px;
   padding-bottom: 2vh;
 }
 
+.navbar li a:hover {
+  color: #eee;
+  text-shadow: -1px 0 #000000, 0 1px #000000, 1px 0 #000000, 0 -1px #000000;}
+
 @media only screen and (max-device-width: 426px) {
   .navbar li {
     font-size: 25px;
@@ -86,6 +91,7 @@ font-size: 25px;
   top:5%;
   left:2vw;
   overflow: hidden;
+  background-color: #eee;
   border: ridge 5px #ddd;
 }
 .canvasContainer #can {
