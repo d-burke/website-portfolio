@@ -2,7 +2,9 @@
 <html>
 <head>
 <title></title>
+<!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
 <style>
+@import url('https://fonts.googleapis.com/css?family=Oswald');
 
 body {
   margin: 0;
@@ -41,6 +43,8 @@ div {
 .navbar ul {
   width: 100%;
   margin: 0;
+  font-family: 'Oswald', sans-serif;
+
   box-sizing: border-box;
   display: table;
   background-color: #286EB4;
@@ -63,6 +67,11 @@ font-size: 25px;
   padding-bottom: 2vh;
 }
 
+@media only screen and (max-device-width: 426px) {
+  .navbar li {
+    font-size: 25px;
+  }
+}
 @media only screen and (min-width: 1200px) {
   .navbar li {
     font-size: 25px;
@@ -155,6 +164,11 @@ font-size: 25px;
   -webkit-filter: drop-shadow(-5px 25px 20px rgba(0, 0, 0, 0.7));
   z-index:90;
 }
+@media only screen and (max-width: 550px) {
+  .github {
+    top: 50%;
+  }
+}
 
 
 </style>
@@ -171,6 +185,7 @@ font-size: 25px;
   <li><a href="https://www.linkedin.com/in/dan-burke/" target="_blank">LinkedIn</a></li>
 </ul>
 </div>
+
 
 <div class="canvasContainer">
 <canvas id="can" width="2000" height="1600"></canvas>
@@ -195,6 +210,32 @@ font-size: 25px;
 
 
 <script type="text/javascript">
+
+    //if mobile, do not display whiteboard
+    testExp = new RegExp('Android|webOS|iPhone|iPad|' +
+     'BlackBerry|Windows Phone|'  +
+     'Opera Mini|IEMobile|Mobile' ,
+      'i');
+    var isMobile = testExp.test(navigator.userAgent);
+    if(isMobile) {
+      document.getElementsByClassName('canvasContainer')[0].style.display='none';
+    };
+
+    //if chrome display 3d perspective
+    var isChrome = /Chrome/.test(navigator.userAgent) && /Google Inc/.test(navigator.vendor);
+    if(isChrome && !isMobile) {
+      document.getElementsByTagName('body')[0].style.perspective='400px';
+      // document.getElementsByTagName('body')[0].style.-webkit-perspective='150px';
+      // document.getElementById('desk').style.-webkit-transform= 'rotateX(50deg)';
+      document.getElementById('desk').style.transform= 'rotateX(50deg)';
+      // document.getElementsByClassName('resume')[0].style.transform= 'rotateX(50deg)';
+      document.write("<style type='text/css'>.resume{transform:rotateX(50deg);}</style>");
+    };
+
+
+
+
+
   var canvas, ctx, flag = false,
     prevX = 0,
     currX = 0,
@@ -206,6 +247,10 @@ font-size: 25px;
   var y = 2;
 
   function init() {
+
+
+
+
     canvas = document.getElementById('can');
     ctx = canvas.getContext("2d");
     w = canvas.width;
