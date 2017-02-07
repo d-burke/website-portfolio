@@ -223,15 +223,18 @@ document.getElementsByClassName('navbar')[0].addEventListener('mouseover', funct
   focus.id = e.target.innerHTML.toLowerCase();
   if(focus.id[0]!='<' && deskIcons[focus.id]){
     focus.node = document.getElementById(focus.id);
+    focus.class = focus.node.className;
+    console.log('claas?', focus.class);
     focus.node.className += ' hold';
   }
 });
 
 document.getElementsByClassName('navbar')[0].addEventListener('mouseout', function(e){
   if(focus.id[0]!='<' && deskIcons[focus.id]){
-      focus.node.className = focus.id;
+      focus.node.className = focus.class;
       focus.node = null;
       focus.id = null;
+      focus.class = null;
     }
 });
 
