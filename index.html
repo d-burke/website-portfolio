@@ -15,7 +15,7 @@ body {
   background-color: #20598C;
 }
 
-body .initPerspective {
+.initPerspective {
   -webkit-perspective: 150px; /* Chrome, Safari, Opera */
   perspective: 400px;
 }
@@ -272,16 +272,15 @@ document.getElementsByClassName('navbar')[0].addEventListener('mouseout', functi
     document.getElementsByClassName('canvasContainer')[0].style.display='none';
   };
 
-  // //if chrome and not mobile, display 3d perspective
-  // var isChrome = /Chrome/.test(navigator.userAgent) && /Google Inc/.test(navigator.vendor);
-  // if(isChrome && !isMobile) {
-  //   document.getElementsByTagName('body')[0].style.perspective='400px';
-  //   // document.getElementsByTagName('body')[0].style.-webkit-perspective='150px';
-  //   // document.getElementById('desk').style.-webkit-transform= 'rotateX(50deg)';
-  //   document.getElementById('desk').style.transform= 'rotateX(50deg)';
-  //   // document.getElementsByClassName('resume')[0].style.transform= 'rotateX(50deg)';
-  //   document.write("<style type='text/css'>.resume{transform:rotateX(50deg);}</style>");
-  // };
+
+  //if chrome and not mobile, display 3d perspective
+  var isChrome = /Chrome/.test(navigator.userAgent) && /Google Inc/.test(navigator.vendor);
+  if(isChrome && !isMobile) {
+    document.getElementsByTagName('body')[0].className = 'initPerspective';
+    document.getElementById('desk').className += ' perspective';
+    document.getElementById('resume').className += ' perspective';
+  };
+
 
   //white board canvas
   var canvas, ctx, flag = false,
