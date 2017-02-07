@@ -4,6 +4,7 @@
 <title></title>
 <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
 <style>
+
 @import url('https://fonts.googleapis.com/css?family=Oswald');
 
 body {
@@ -12,13 +13,18 @@ body {
   position: absolute;
   top: 0; right: 0; bottom: 0; left: 0;
   background-color: #20598C;
-  /*-webkit-perspective: 150px;*//*  Chrome, Safari, Opera  */
-  /*  perspective: 400px;*/
 }
+
+body .initPerspective {
+  -webkit-perspective: 150px; /* Chrome, Safari, Opera */
+  perspective: 400px;
+}
+
 
 div {
   transition: all .33s ease-in-out;
 }
+
 
 .navbar a:link {
   text-decoration: none;
@@ -48,7 +54,7 @@ div {
   box-sizing: border-box;
   display: table;
   background-color: #286EB4;
-  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#6899ca+0,4ea1e5+24,3b88d4+50,3c82c9+79,6899ca+100 */
+  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#6899ca+0,4ea1e5+24,3b88d4+50,3c82c9+79,6899ca+100
   background: rgb(104,153,202); /* Old browsers */
   background: -moz-linear-gradient(top,  rgba(104,153,202,1) 0%, rgba(78,161,229,1) 24%, rgba(59,136,212,1) 50%, rgba(60,130,201,1) 79%, rgba(104,153,202,1) 100%); /* FF3.6-15 */
   background: -webkit-linear-gradient(top,  rgba(104,153,202,1) 0%,rgba(78,161,229,1) 24%,rgba(59,136,212,1) 50%,rgba(60,130,201,1) 79%,rgba(104,153,202,1) 100%); /* Chrome10-25,Safari5.1-6 */
@@ -112,9 +118,7 @@ div {
   background-size: cover;
   z-index: 10;
   background-color: #B46E28;
-/*  border: 5px solid  #743E08;*/
-/*  -webkit-transform: rotateX(50deg);
-  transform: rotateX(50deg);*/
+  /*border: 5px solid  #743E08;*/
 }
 
 
@@ -123,20 +127,21 @@ div {
   left: 45%;
   top: 55%;
   /*height: 16%;*/
-  width: 12%;
   /*border: 3px solid black;*/
-/*  -webkit-transform: rotateX(50deg);
-  transform: rotateX(50deg);*/
+  width: 12%;
   z-index: 50;
 }
+
 .resume:hover {
   transform: scale(1.4, 1.4);
   z-index: 80;
 }
+
 .resume img {
   width:100%;
   height: 100%;
 }
+
 .resume img:hover {
   /*width:100%;*/
   height: 100%;
@@ -153,17 +158,18 @@ div {
   max-height: 14.5%;
   max-width: 10%;
   z-index: 50;
-/*  -webkit-transform: rotateX(50deg);
-  transform: rotateX(50deg);*/
 }
+
 .github:hover {
   transform: scale(1.4, 1.4);
   z-index: 80;
 }
+
 .github img {
   width:100%;
   height: 100%;
 }
+
 .github img:hover{
   width:100%;
   height: 100%;
@@ -171,22 +177,26 @@ div {
   -webkit-filter: drop-shadow(-5px 25px 20px rgba(0, 0, 0, 0.7));
   z-index:90;
 }
+
 @media only screen and (max-width: 550px) {
   .github {
     top: 50%;
   }
 }
 
-/*.magic8ball {
-  position: absolute;
-  left: 0%;
-  top: 10%;
-  margin: 5%;
-  height: 100%;
-  max-height: 100%;
-  max-width: 100%;
-  z-index: 101;
-}*/
+
+.perspective {
+  -webkit-transform: rotateX(50deg);
+  transform: rotateX(50deg);
+}
+
+
+.hold {
+  transform: scale(1.4, 1.4);
+  filter: drop-shadow(-5px 25px 20px rgba(0, 0, 0, 0.7));
+  -webkit-filter: drop-shadow(-5px 25px 20px rgba(0, 0, 0, 0.7));
+  z-index:90;
+}
 
 </style>
 </head>
@@ -197,32 +207,55 @@ div {
 <div class="navbar">
 <ul>
   <li><a href="index.html">Home</a></li>
-  <li><a href="DanBurke_Resume.pdf" target="_blank">Resume</a></li>
+  <li><a href="DanBurke_Resume.pdf" target="_blank" class="navResume">Resume</a></li>
   <li><a href="https://github.com/d-burke" target="_blank">GitHub</a></li>
   <li><a href="https://www.linkedin.com/in/dan-burke/" target="_blank">LinkedIn</a></li>
 </ul>
 </div>
 
+<script type="text/javascript">
+
+//hover on navbar increases corresponding desk icon size
+var focus;
+
+document.getElementsByClassName('navbar')[0].addEventListener('mouseover', function(e){
+  console.log('e: ', e.target.innerHTML.toLowerCase());
+  focus.id = e.target.innerHTML.toLowerCase();
+  if(focus.id[0]!='<'){
+    console.log('focus.id: ',focus.id);
+    focus.node = document.getElementById(focus.id);
+    focus.node.className += ' hold';
+  }
+});
+
+document.getElementsByClassName('navbar')[0].addEventListener('mouseout', function(e){
+  if(focus.id[0]!='<'){
+      focus.node.className = focus.id;
+      focus.node = null;
+      focus.id = null;
+    }
+});
+
+</script>
 
 <div class="canvasContainer">
-<canvas id="can" width="2000" height="1600"></canvas>
+  <canvas id="can" width="2000" height="1600"></canvas>
 </div>
 
 <div id="desk"></div>
 
-
 <div id="resume" class="resume">
-<!-- <object data="DanBurke_Resume.pdf#scrollbar=0&toolbar=0&view=fitBH" type="application/pdf" height="100%" width="100%">
-</object> -->
-<a href="DanBurke_Resume.pdf" target="_blank">
-<img src="ResumeIcon.png">
-</a>
+  <!-- <object data="DanBurke_Resume.pdf#scrollbar=0&toolbar=0&view=fitBH" type="application/pdf" height="100%" width="100%">
+  </object> -->
+  <a href="DanBurke_Resume.pdf" target="_blank">
+    <img src="ResumeIcon.png">
+  </a>
 </div>
 
 <div id="github" class="github">
-<a href="https://github.com/d-burke" target="_blank">
-<img src="Octocat.png">
-</a>
+  <a href="https://github.com/d-burke" target="_blank">
+    <img src="Octocat.png">
+  </a>
 </div>
 
 <!-- <div class="magic8ball"><img src="8BallPreview.png"></div> -->
@@ -230,31 +263,28 @@ div {
 
 <script type="text/javascript">
 
-    //if mobile, do not display whiteboard
-    testExp = new RegExp('Android|webOS|iPhone|iPad|' +
-     'BlackBerry|Windows Phone|'  +
-     'Opera Mini|IEMobile|Mobile' ,
-      'i');
-    var isMobile = testExp.test(navigator.userAgent);
-    if(isMobile) {
-      document.getElementsByClassName('canvasContainer')[0].style.display='none';
-    };
+  //if mobile, do not display whiteboard
+  testExp = new RegExp('Android|webOS|iPhone|iPad|' +
+   'BlackBerry|Windows Phone|'  +
+   'Opera Mini|IEMobile|Mobile' ,
+    'i');
+  var isMobile = testExp.test(navigator.userAgent);
+  if(isMobile) {
+    document.getElementsByClassName('canvasContainer')[0].style.display='none';
+  };
 
-    //if chrome display 3d perspective
-    var isChrome = /Chrome/.test(navigator.userAgent) && /Google Inc/.test(navigator.vendor);
-    if(isChrome && !isMobile) {
-      document.getElementsByTagName('body')[0].style.perspective='400px';
-      // document.getElementsByTagName('body')[0].style.-webkit-perspective='150px';
-      // document.getElementById('desk').style.-webkit-transform= 'rotateX(50deg)';
-      document.getElementById('desk').style.transform= 'rotateX(50deg)';
-      // document.getElementsByClassName('resume')[0].style.transform= 'rotateX(50deg)';
-      document.write("<style type='text/css'>.resume{transform:rotateX(50deg);}</style>");
-    };
+  // //if chrome and not mobile, display 3d perspective
+  // var isChrome = /Chrome/.test(navigator.userAgent) && /Google Inc/.test(navigator.vendor);
+  // if(isChrome && !isMobile) {
+  //   document.getElementsByTagName('body')[0].style.perspective='400px';
+  //   // document.getElementsByTagName('body')[0].style.-webkit-perspective='150px';
+  //   // document.getElementById('desk').style.-webkit-transform= 'rotateX(50deg)';
+  //   document.getElementById('desk').style.transform= 'rotateX(50deg)';
+  //   // document.getElementsByClassName('resume')[0].style.transform= 'rotateX(50deg)';
+  //   document.write("<style type='text/css'>.resume{transform:rotateX(50deg);}</style>");
+  // };
 
-
-
-
-
+  //white board canvas
   var canvas, ctx, flag = false,
     prevX = 0,
     currX = 0,
@@ -266,10 +296,6 @@ div {
   var y = 2;
 
   function init() {
-
-
-
-
     canvas = document.getElementById('can');
     ctx = canvas.getContext("2d");
     w = canvas.width;
@@ -329,6 +355,7 @@ div {
       };
     };
   };
+
 </script>
 
 
