@@ -11,9 +11,9 @@ body {
   overflow: hidden;
   position: absolute;
   top: 0; right: 0; bottom: 0; left: 0;
-  background-color: #286EB4;
+  background-color: #20598C;
   /*-webkit-perspective: 150px;*//*  Chrome, Safari, Opera  */
-/*  perspective: 400px;*/
+  /*  perspective: 400px;*/
 }
 
 div {
@@ -45,7 +45,6 @@ div {
   width: 100%;
   margin: 0;
   font-family: 'Oswald', sans-serif;
-
   box-sizing: border-box;
   display: table;
   background-color: #286EB4;
@@ -58,7 +57,7 @@ div {
 }
 
 .navbar li {
-font-size: 25px;
+  font-size: 25px;
   display: table-cell;
   color: #081624;
   text-shadow: -1px 0 #93b6d9, 0 1px #93b6d9, 1px 0 #93b6d9, 0 -1px #93b6d9;
@@ -93,7 +92,9 @@ font-size: 25px;
   overflow: hidden;
   background-color: #eee;
   border: ridge 5px #ddd;
+  cursor: url('uncappedblackpen.png'), auto;
 }
+
 .canvasContainer #can {
   position:relative;
   margin:0px;
@@ -129,7 +130,7 @@ font-size: 25px;
   z-index: 50;
 }
 .resume:hover {
-  transform: scale(1.5, 1.5);
+  transform: scale(1.4, 1.4);
   z-index: 80;
 }
 .resume img {
@@ -156,7 +157,7 @@ font-size: 25px;
   transform: rotateX(50deg);*/
 }
 .github:hover {
-  transform: scale(1.5, 1.5);
+  transform: scale(1.4, 1.4);
   z-index: 80;
 }
 .github img {
@@ -176,6 +177,16 @@ font-size: 25px;
   }
 }
 
+/*.magic8ball {
+  position: absolute;
+  left: 0%;
+  top: 10%;
+  margin: 5%;
+  height: 100%;
+  max-height: 100%;
+  max-width: 100%;
+  z-index: 101;
+}*/
 
 </style>
 </head>
@@ -213,6 +224,8 @@ font-size: 25px;
 <img src="Octocat.png">
 </a>
 </div>
+
+<!-- <div class="magic8ball"><img src="8BallPreview.png"></div> -->
 
 
 <script type="text/javascript">
