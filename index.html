@@ -216,20 +216,19 @@ div {
 <script type="text/javascript">
 
 //hover on navbar increases corresponding desk icon size
+const deskIcons = {resume: true, github: true};
 var focus;
 
 document.getElementsByClassName('navbar')[0].addEventListener('mouseover', function(e){
-  console.log('e: ', e.target.innerHTML.toLowerCase());
   focus.id = e.target.innerHTML.toLowerCase();
-  if(focus.id[0]!='<'){
-    console.log('focus.id: ',focus.id);
+  if(focus.id[0]!='<' && deskIcons[focus.id]){
     focus.node = document.getElementById(focus.id);
     focus.node.className += ' hold';
   }
 });
 
 document.getElementsByClassName('navbar')[0].addEventListener('mouseout', function(e){
-  if(focus.id[0]!='<'){
+  if(focus.id[0]!='<' && deskIcons[focus.id]){
       focus.node.className = focus.id;
       focus.node = null;
       focus.id = null;
