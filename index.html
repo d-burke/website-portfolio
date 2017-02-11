@@ -55,6 +55,7 @@ div {
   font-family: 'Oswald', sans-serif;
   box-sizing: border-box;
   display: table;
+  white-space: nowrap;
   background-color: #286EB4;
   /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#6899ca+0,4ea1e5+24,3b88d4+50,3c82c9+79,6899ca+100
   background: rgb(104,153,202); /* Old browsers */
@@ -261,10 +262,11 @@ div {
 
 <div class="navbar">
 <ul>
-  <li><a href="index.html">Home</a></li>
+<!--   <li><a href="index.html">Home</a></li> -->
+  <li><a href="https://www.linkedin.com/in/dan-burke/" target="_blank">LinkedIn</a></li>
   <li><a href="DanBurke_Resume.pdf" target="_blank" class="navResume">Resume</a></li>
   <li><a href="https://github.com/d-burke" target="_blank">GitHub</a></li>
-  <li><a href="https://www.linkedin.com/in/dan-burke/" target="_blank">LinkedIn</a></li>
+  <li><a href="mailto:dan.burke.software.engineer@gmail.com">Email Me</a></li>
 </ul>
 </div>
 
@@ -272,11 +274,14 @@ div {
 <script type="text/javascript">
 
 //hover on navbar increases corresponding desk icon size
-const deskIcons = {resume: true, github: true};
+const deskIcons = {resume: true, github: true, emailme: true};
 var focus;
 
 document.getElementsByClassName('navbar')[0].addEventListener('mouseover', function(e){
   focus.id = e.target.innerHTML.toLowerCase();
+  if(focus.id === 'email me'){
+    focus.id = 'emailme';
+  }
   if(focus.id[0]!='<' && deskIcons[focus.id]){
     focus.node = document.getElementById(focus.id);
     focus.class = focus.node.className;
