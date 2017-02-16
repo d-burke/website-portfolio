@@ -137,7 +137,7 @@ div {
   /*height: 16%;*/
   /*border: 3px solid black;*/
   width: 12%;
-  z-index: 51;
+  z-index: 60;
 }
 
 .resume:hover {
@@ -214,7 +214,7 @@ div {
   max-width: 13.5%;
 /*  max-height: 14.5%;
   max-width: 10%;*/
-  z-index: 50;
+  z-index: 51;
 }
 
 .emailme:hover {
@@ -244,17 +244,13 @@ div {
 
 
 
-
-
-
-
 .scribaCell {
   position: absolute;
   left: 35%;
   top: 62%;
   max-height: 20%;
   max-width: 5%;
-  z-index: 50;
+  z-index: 51;
 }
 
 .scribaCell:hover {
@@ -283,6 +279,46 @@ div {
 }
 
 
+
+.linkedIn {
+  position: absolute;
+  left: 33%;
+  top: 47.5%;
+  max-height: 20%;
+  max-width: 6%;
+  z-index: 50;
+}
+
+.linkedIn:hover {
+  transform: scale(1.4, 1.4);
+  z-index: 80;
+}
+
+.linkedIn img {
+  width:100%;
+  height: 100%;
+}
+
+.linkedIn img:hover{
+  width:100%;
+  height: 100%;
+  filter: drop-shadow(-5px 25px 20px rgba(0, 0, 0, 0.7));
+  -webkit-filter: drop-shadow(-5px 25px 20px rgba(0, 0, 0, 0.7));
+  z-index:90;
+}
+
+@media only screen and (max-width: 650px) {
+  .linkedIn {
+    top: 50%;
+  }
+}
+
+@media only screen and (max-device-width: 550px) {
+  .linkedIn {
+    max-width: 10%;
+    left: 30%;
+  }
+}
 
 
 
@@ -321,13 +357,16 @@ div {
 <script type="text/javascript">
 
 //hover on navbar increases corresponding desk icon size
-const deskIcons = {resume: true, github: true, emailme: true};
+const deskIcons = {resume: true, github: true, emailme: true, linkedIn: true};
 var focus;
 
 document.getElementsByClassName('navbar')[0].addEventListener('mouseover', function(e){
   focus.id = e.target.innerHTML.toLowerCase();
   if(focus.id === 'email me'){
     focus.id = 'emailme';
+  }
+  if(focus.id === 'linkedin'){
+    focus.id = 'linkedIn';
   }
   if(focus.id[0]!='<' && deskIcons[focus.id]){
     focus.node = document.getElementById(focus.id);
@@ -386,6 +425,12 @@ document.getElementsByClassName('navbar')[0].addEventListener('mouseout', functi
   </a>
 </div>
 
+
+<div id="linkedIn" class="linkedIn">
+  <a href="https://www.linkedin.com/in/dan-burke/" target="_blank">
+    <img src="linkedin-icon.png">
+  </a>
+</div>
 
 
 
