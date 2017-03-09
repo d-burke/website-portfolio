@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Text Morse Code Converter</title>
+
+<!--
+Description: convert alphanumeric text into morse code text and vice versa.
+Creator: Dan Burke
+-->
+
+<style type="text/css">
+</style>
+</head>
+
+
+<body style = "font-family:'Helvetica'" bgcolor="black">
+
+<div id="body_container">
+
+
+<!-- div container for text_to_morse_code_container -->
+<div id="text_to_morse_code_container"  style="background-color:#2ea3a3" >
+
+
+<!-- title -->
+<center>
+<h1><font color="#a72a2a" style = "text-shadow: 2px 2px 1px #113c3c; font-family:'Arial Black'">
+<p>Text To Morse Code</p>
+</font></h1>
+
+
+<!-- input text box -->
+<input type="text" name="textboxInput1"  id="textboxInput1" class="textboxInput1">
+
+
+<!-- display areas for input text & equivalent morse code -->
+<h2>Your text:</h2>
+<h3><div class="printTextbox1" id="printTextbox1"></div></h3>
+<br>
+<h2>Morse Code:</h2>
+<h3><div class="printMorse1" id="printMorse1"></div></h3>
+<br>
+
+
+<script>
+
+/* data of text characters to corresponding morse code */
+var abcMorseCode = {
+   'a' : '.-',
+   'b' : '-...',
+   'c' : '-.-.',
+   'd' : '-..',
+   'e' : '.',
+   'f' : '..-.',
+   'g' : '--.',
+   'h' : '....',
+   'i' : '..',
+   'j' : '.---',
+   'k' : '-.-',
+   'l' : '.-..',
+   'm' : '--',
+   'n' : '-.',
+   'o' : '---',
+   'p' : '.--.',
+   'q' : '--.-',
+   'r' : '.-.',
+   's' : '...',
+   't' : '-',
+   'u' : '..-',
+   'v' : '...-',
+   'w' : '.--',
+   'x' : '-..-',
+   'y' : '-.--',
+   'z' : '--..',
+   ' ' : ' ',
+
+   '1' : '.----',
+   '2' : '..---',
+   '3' : '...--',
+   '4' : '....-',
+   '5' : '.....',
+   '6' : '-....',
+   '7' : '--...',
+   '8' : '---..',
+   '9' : '----.',
+   '0' : '-----',
+
+   '.' : '.-.-.-',
+   ',' : '--..--',
+   '?' : '..--..',
+   '\'' : '.----.',
+   '!' : '-.-.--',
+   '/' : '-..-.',
+   '(' : '-.--.',
+   ')' : '-.--.-',
+   '&' : '.-...',
+   ':' : '---...',
+   ';' : '-.-.-.',
+   '=' : '-...-',
+   '+' : '.-.-.',
+   '-' : '-....-',
+   '_' : '..--.-',
+   '\"' : '.-..-.',
+   '$' : '...-..-',
+   '@' : '.--.-.'
+};
+
+
+/* program starts on key up in textboxInput1 */
+document.getElementById('textboxInput1').onkeyup = function()
+{
+   var morseCodeResult = [''];
+
+   /* input always lowercase */
+   textboxInput1.value = textboxInput1.value.toLowerCase();
+
+   /* convert each input char to equivalent morse code, else upside-down '?' */
+   for (i = 0; i < textboxInput1.value.length; i++)
+   {
+      var convertedChar = abcMorseCode[textboxInput1.value[i]] || '&#191';
+      /* adds '/' between each morse code letter for readability */
+      morseCodeResult.push(convertedChar + ' ' + '/ ');
+   };
+
+   /* prints input text */
+   document.getElementById('printTextbox1').innerHTML = textboxInput1.value;
+
+   /* prints resulting morse code */
+   document.getElementById('printMorse1').innerHTML = morseCodeResult.join('');
+};
+
+</script>
+
+
+</center>
+<font color="2e2ea3" size="2em" style = "text-align:'right'; font-family:'Times'">
+Dan Burke
+<br>
+March 7, 2017
+</font>
+
+</div> <!-- id="text_to_morse_code_container" -->
+
+
+
+<!--  *********************************************** -->
+<div id="space_between"></div>
+<!--  *********************************************** -->
+
+
+
+<!-- div container for morse_code_to_text_container -->
+<div id="morse_code_to_text_container"  style="background-color:#a72a2a" >
+
+
+<!-- title -->
+<center>
+<h1><font color="#2ea3a3" style = "text-shadow: 2px 2px 1px #460713; font-family:'Arial Black'">
+<p>Morse Code To Text</p>
+</font></h1>
+
+
+<!-- input textbox -->
+<input type="text" name="textboxInput2"  id="textboxInput2" class="textboxInput2">
+
+
+<!-- display areas for input morse code text & equivalent alphanumeric text -->
+<h2>Your Morse Code:</h2>
+<h3><div class="printTextbox2" id="printTextbox2"></div></h3>
+<br>
+<h2>Text:</h2>
+<h3><div class="printText2" id="printText2"></div></h3>
+<br>
+
+
+<script>
+
+/* data of morse code to corresponding text characters */
+var morseCodeAbc = {
+   '.-' : 'a',
+   '-...' : 'b',
+   '-.-.' : 'c',
+   '-..' : 'd',
+   '.' : 'e',
+   '..-.' : 'f',
+   '--.' : 'g',
+   '....' : 'h',
+   '..' : 'i',
+   '.---' : 'j',
+   '-.-' : 'k',
+   '.-..' : 'l',
+   '--' : 'm',
+   '-.' : 'n',
+   '---' : 'o',
+   '.--.' : 'p',
+   '--.-' : 'q',
+   '.-.' : 'r',
+   '...' : 's',
+   '-' : 't',
+   '..-' : 'u',
+   '...-' : 'v',
+   '.--' : 'w',
+   '-..-' : 'x',
+   '-.--' : 'y',
+   '--..' : 'z',
+   ' ' : ' ',
+   '' : ' ',
+
+   '.----' : '1',
+   '..---' : '2',
+   '...--' : '3',
+   '....-' : '4',
+   '.....' : '5',
+   '-....' : '6',
+   '--...' : '7',
+   '---..' : '8',
+   '----.' : '9',
+   '-----' : '0',
+
+   '.-.-.-' : '.',
+   '--..--' : ',',
+   '..--..' : '?',
+   '.----.' : '\'',
+   '-.-.--' : '!',
+   '-..-.' : '/',
+   '-.--.' : '(',
+   '-.--.-' : ')',
+   '.-...' : '&',
+   '---...' : ':',
+   '-.-.-.' : ';',
+   '-...-' : '=',
+   '.-.-.' : '+',
+   '-....-' : '-',
+   '..--.-' : '_',
+   '.-..-.' : '\"',
+   '...-..-' : '$',
+   '.--.-.' : '@'
+};
+
+
+/* program starts on key up in textboxInput2 */
+document.getElementById('textboxInput2').onkeyup = function()
+{
+   var abcResult = [''];
+   var cleanMorseCode = [''];
+
+   /* accepts only '.' and '-' and ' ' from input text */
+   for (i=0; i<textboxInput2.value.length; i++)
+   {
+      if (textboxInput2.value[i]=='.')
+      {
+         cleanMorseCode.push('.');
+      }
+      else if (textboxInput2.value[i]=='-')
+      {
+         cleanMorseCode.push('-');
+      }
+      else if (textboxInput2.value[i]==' ')
+      {
+         cleanMorseCode.push(' ');
+      }
+   };
+
+
+   /* overwrites textboxInput2 to allow only valid characters */
+   textboxInput2.value=cleanMorseCode.join('');
+
+   /* saves back into cleanMorseCode as array of morse code strings*/
+   cleanMorseCode=textboxInput2.value.split(' ');
+
+   /* prints input morse code text*/
+   document.getElementById('printTextbox2').innerHTML = textboxInput2.value;
+
+
+   /* convert each morse code string to equivalent char, else upside-down '?' */
+   for(i=0; i<cleanMorseCode.length; i++)
+   {
+      var convertedChar = morseCodeAbc[cleanMorseCode[i]] || '&#191';
+      abcResult.push(convertedChar);
+   }
+
+
+   /* deletes extra spaces */
+   for(i=0; i<abcResult.length; i++)
+   {
+      if(abcResult[i]==' ' && abcResult[i+1]==' ')
+      {
+         i++;
+      };
+      while(abcResult[i]==' ')
+      {
+         abcResult[i]='';
+         i++;
+      };
+   };
+
+
+   /* prints resulting text */
+   document.getElementById('printText2').innerHTML = abcResult.join('');
+
+};
+
+</script>
+
+
+</center>
+<font color="cd7013" size="2em" style = "text-align:'right'; font-family:'Times'">
+Dan Burke
+<br>
+March 8, 2017
+</font>
+
+</div> <!-- id="morse_code_to_text_container" -->
+
+
+</div> <!-- id="body_container" -->
+
+</body>
+</html>
+
+
