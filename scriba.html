@@ -6,20 +6,261 @@
 <style>
 @import url('https://fonts.googleapis.com/css?family=Oswald');
 
-body {}
+body {
+  background-color: #20598C;
+  /*color: white;*/
+  color: #eee;
+  /*margin: 0;*/
+  overflow: scroll;
+  top: 0; right: 0; bottom: 0; left: 0;
+  font-family: sans-serif;
+  font-weight: lighter;
+}
+
+
+h1, h2, h3, h4 {
+    font-family: 'Oswald', sans-serif;
+    font-weight: bolder;
+}
+
+
+body a:link {
+  color:#fd8d1d;
+}
+body a:visited {
+  color:#fd8d1d;
+}
+body a:hover {
+  color:#fd8d1d;
+}
+body a:active {
+  color:#fd8d1d;
+}
+body a:focus {
+  color:#fd8d1d;
+}
+
+
+div {
+  transition: all .33s ease-in-out;
+}
+
+
+.navbar {
+  position: fixed;
+  margin: 0;
+  top: 0; right: 0; bottom: 0; left: 0;
+
+}
+
+.navbar a:link {
+  text-decoration: none;
+  color:inherit;
+}
+.navbar a:visited {
+  text-decoration: none;
+  color:inherit;
+}
+.navbar a:hover {
+  text-decoration: none;
+  color:inherit;
+}
+.navbar a:active {
+  text-decoration: none;
+  color:inherit;
+}
+.navbar a:focus {
+  text-decoration: none;
+  color:inherit;
+}
+
+.navbar ul {
+  width: 100%;
+  margin: 0;
+  font-family: 'Oswald', sans-serif;
+  box-sizing: border-box;
+  display: table;
+  white-space: nowrap;
+  background-color: #286EB4;
+  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#6899ca+0,4ea1e5+24,3b88d4+50,3c82c9+79,6899ca+100
+  background: rgb(104,153,202); /* Old browsers */
+  background: -moz-linear-gradient(top,  rgba(104,153,202,1) 0%, rgba(78,161,229,1) 24%, rgba(59,136,212,1) 50%, rgba(60,130,201,1) 79%, rgba(104,153,202,1) 100%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(top,  rgba(104,153,202,1) 0%,rgba(78,161,229,1) 24%,rgba(59,136,212,1) 50%,rgba(60,130,201,1) 79%,rgba(104,153,202,1) 100%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to bottom,  rgba(104,153,202,1) 0%,rgba(78,161,229,1) 24%,rgba(59,136,212,1) 50%,rgba(60,130,201,1) 79%,rgba(104,153,202,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#6899ca', endColorstr='#6899ca',GradientType=0 ); /* IE6-9 */
+}
+
+.navbar li {
+  font-size: 25px;
+  display: table-cell;
+  color: #081624;
+  text-shadow: -1px 0 #93b6d9, 0 1px #93b6d9, 1px 0 #93b6d9, 0 -1px #93b6d9;
+  padding-left: 1vh;
+  padding-right: 1vh;
+  padding-top: 2vh;
+  padding-bottom: 2vh;
+}
+
+.navbar li a:hover {
+  color: #eee;
+  text-shadow: -1px 0 #000000, 0 1px #000000, 1px 0 #000000, 0 -1px #000000;}
+
+@media only screen and (max-device-width: 426px) {
+  .navbar li {
+    font-size: 15px;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .navbar li {
+    font-size: 25px;
+  }
+}
+
+
+
+.scribaFeature{
+  display: inline;
+  width: 20%;
+  padding: 5%;
+  float: left;
+}
+.scribaFeature p{
+  margin: auto;
+  text-align: justify;
+  margin: 1%;
+}
+
+p {
+  display: block;
+  text-indent: 30px;
+}
+
+div {
+  display: block;
+}
+
+.sD{
+  /*display: block;*/
+  float: left;
+  margin:auto;
+}
+
+
+.ind {
+    text-indent: 60px;
+}
+
 </style>
 </head>
 <body>
 
+<div class="navbar">
+<ul>
+<!--   <li><a href="index.html">Home</a></li> -->
+  <li><a href="https://www.linkedin.com/in/dan-burke/" target="_blank">LinkedIn</a></li>
+  <li><a href="DanBurke_Resume.pdf" target="_blank" class="navResume">Resume</a></li>
+  <li><a href="https://github.com/d-burke" target="_blank">GitHub</a></li>
+  <li><a href="mailto:dan.burke.software.engineer@gmail.com">Email Me</a></li>
+</ul>
+</div>
+
+
+<br><br><br>
 <h1> Scriba </h1>
 
-<h2> A mobile app that allows users to post and view messages on location. </h2>
+<p> A mobile app that allows users to post and view messages on location. </p>
 
+<div class="sD">
+<div class="scribaFeature">
 <img src="scribaClientMapview.png">
-<img src="scribaClientNearby.png">
-<img src="scribaClientPost.png">
+<p>Features a large GPS map populated with icons of neaby posted messages.  Map icon images denotes the message's catagory and touching the icon brings up the expanded information for that post.
+Touch the bottom write pencil icon to post your own message to your current GPS location.  (Posting requires easy account creation with Auth0 using your Google or Facebook)
+</p></div>
 
-<h4> Development Team </h4>
+<div class="scribaFeature">
+<img src="scribaClientNearby.png">
+<p>Posts page lists posted messages in your area.  List can be sorted by proximity, most recent, and highest rated. Touching a message will bring up that message's expanded information page.
+</p></div>
+
+<div class="scribaFeature">
+<img src="scribaClientPost.png">
+<p>Posted message's expanded information page shows the massages map location, author, full message, how long ago it was posted, and total vote count.  Users also can vote the message up or down from here.
+</p></div>
+</div>
+
+<div>
+<h2>Problem This Solves</h2>
+<p>The need to post a public message without vandalizing or littering. </p>
+</div>
+
+<div>
+<h2>Uses</h2>
+<p><ul>
+  <li>lost pets</li>
+  <li>yard sales</li>
+  <li>special events</li>
+  <li>tourism info</li>
+  <li>funny comments</li>
+  <li>helpful info</li>
+  <li>food recommendations</li>
+  <li>warnings</li>
+  <li>hazards</li>
+  <li>political comments</li>
+  <li>tagging</li>
+  <li>promotion</li>
+  <li>places to check out</li>
+  <li>places to avoid</li>
+  <li>trivia</li>
+  <li>location history</li>
+  <li>ask for help</li>
+  <li>offer help</li>
+  <li>street performing</li>
+  <li>advertising</li>
+  <li>conversations</li>
+  <li>for sale</li>
+  <li>treasure hunts</li>
+  <li>geocaching</li>
+  <li>anything!</li>
+</ul></p>
+</div>
+
+
+<!--
+  our app yay (vid)
+This is Scriba
+icon messages yaya
+dog sad
+dog found yay
+clicking on shows (location and expanded info)
+
+...
+MewTwo spotted!!!!111!!!~!!
+
+
+post your own message (Den)
+-categories
+-subcategory
+
+login (Den)
+-account options
+-username
+
+posts page (St)
+-voting
+-sorting
+-modal?
+
+profile page (C)
+-stuff
+-and things
+-->
+
+
+
+
+
+<h2> Development Team </h2>
 <ul>
 <li><b>Poduct Owner:</b> Dan Burke</li>
 <li><b>Scrum Master:</b> Dennis Nguyen</li>
@@ -28,13 +269,14 @@ body {}
 </ul>
 
 
+<h2>See It Here</h2>
 <p>
 The Scriba mobile app client-side can be found at:
-<a href="https://github.com/d-burke/ScribaClient">https://github.com/d-burke/ScribaClient</a>
+<p class="ind"><a href="https://github.com/d-burke/ScribaClient">https://github.com/d-burke/ScribaClient</a></p>
 </p>
 <p>
 The Scriba mobile app server can be found at:
-<a href="https://github.com/Wizards2016/ScribaServer">https://github.com/Wizards2016/ScribaServer.</a>
+<p class="ind"><a href="https://github.com/Wizards2016/ScribaServer">https://github.com/Wizards2016/ScribaServer.</a></p>
 </p>
 
 
