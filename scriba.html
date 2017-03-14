@@ -8,21 +8,11 @@
 
 body {
   background-color: #20598C;
-  /*color: white;*/
   color: #eee;
-  /*margin: 0;*/
-  overflow: scroll;
-  top: 0; right: 0; bottom: 0; left: 0;
   font-family: sans-serif;
   font-weight: lighter;
+  margin: 4vw;
 }
-
-
-h1, h2, h3, h4 {
-    font-family: 'Oswald', sans-serif;
-    font-weight: bolder;
-}
-
 
 body a:link {
   color:#fd8d1d;
@@ -43,7 +33,84 @@ body a:focus {
 
 div {
   transition: all .33s ease-in-out;
+  display: block;
+  clear: both;
 }
+
+
+p {
+  text-indent: 3vh;
+}
+
+
+h1, h2, h3, h4 {
+  font-family: 'Oswald', sans-serif;
+  font-weight: bolder;
+}
+
+h1{margin-top: 15vh;}
+
+
+
+.scribaDescription{
+  display: block;
+}
+
+.scribaFeature {
+  display: inline;
+  width: 29%;
+  padding: 2%;
+  /*margin:1%;*/
+  float: left;
+  clear: none;
+  /*display: block;*/
+  /*display: inline-block;*/
+  /*margin: auto;*/
+}
+
+.scribaFeature .left{
+  /*float:left;*/
+}
+
+.scribaFeature img {
+  /*align-items: left;*/
+  width: 100%;
+  display: block;
+  /*margin: auto;*/
+}
+
+.scribaFeature p {
+  /*margin: auto;*/
+  /*text-align: justify;*/
+  /*display: block;*/
+  text-align: justify;
+  /*margin: 1%;*/
+  width: 100%;
+  /*max-width: 280px;*/
+  text-indent: 0px;
+  /*padding: 50px;*/
+  /*margin: 10px;*/
+  margin-bottom: 6vh;
+}
+
+@media only screen and (max-width: 768px) {
+  .scribaFeature {
+    float:none;  margin: auto;
+  }
+  .scribaFeature img {
+    width:100%;
+    /*max-width: 280px;*/
+    margin: auto;
+  }
+  .scribaFeature p {
+    display: block;
+    /*max-width: 280px;*/
+  }
+  .scribaDescription{
+    max-width: 280px;
+  }
+}
+
 
 
 .navbar {
@@ -118,169 +185,101 @@ div {
 }
 
 
-
-.scribaFeature{
-  display: inline;
-  width: 20%;
-  padding: 5%;
-  float: left;
-}
-.scribaFeature p{
-  margin: auto;
-  text-align: justify;
-  margin: 1%;
-}
-
-p {
-  display: block;
-  text-indent: 30px;
-}
-
-div {
-  display: block;
-}
-
-.sD{
-  /*display: block;*/
-  float: left;
-  margin:auto;
-}
-
-
-.ind {
-    text-indent: 60px;
-}
-
 </style>
 </head>
+
+
 <body>
 
+
 <div class="navbar">
-<ul>
-<!--   <li><a href="index.html">Home</a></li> -->
-  <li><a href="https://www.linkedin.com/in/dan-burke/" target="_blank">LinkedIn</a></li>
-  <li><a href="DanBurke_Resume.pdf" target="_blank" class="navResume">Resume</a></li>
-  <li><a href="https://github.com/d-burke" target="_blank">GitHub</a></li>
-  <li><a href="mailto:dan.burke.software.engineer@gmail.com">Email Me</a></li>
-</ul>
+  <ul>
+    <li><a href="index.html">Home</a></li>
+  </ul>
 </div>
 
 
-<br><br><br>
 <h1> Scriba </h1>
 
 <p> A mobile app that allows users to post and view messages on location. </p>
 
-<div class="sD">
-<div class="scribaFeature">
-<img src="scribaClientMapview.png">
-<p>Features a large GPS map populated with icons of neaby posted messages.  Map icon images denotes the message's catagory and touching the icon brings up the expanded information for that post.
-Touch the bottom write pencil icon to post your own message to your current GPS location.  (Posting requires easy account creation with Auth0 using your Google or Facebook)
-</p></div>
 
-<div class="scribaFeature">
-<img src="scribaClientNearby.png">
-<p>Posts page lists posted messages in your area.  List can be sorted by proximity, most recent, and highest rated. Touching a message will bring up that message's expanded information page.
-</p></div>
+<div class="scribaDescription">
+  <div class="scribaFeature">
+    <img src="scribaClientMapview.png">
+    <p>Features a large GPS map populated with icons of neaby posted messages.  Map icon images denotes the message's catagory and touching the icon brings up the expanded information for that post.
+    Touch the bottom write pencil icon to post your own message to your current GPS location.  (Posting requires easy account creation with Auth0 using your Google or Facebook)
+    </p>
+  </div>
 
-<div class="scribaFeature">
-<img src="scribaClientPost.png">
-<p>Posted message's expanded information page shows the massages map location, author, full message, how long ago it was posted, and total vote count.  Users also can vote the message up or down from here.
-</p></div>
+  <div class="scribaFeature">
+    <img src="scribaClientNearby.png">
+    <p>Posts page lists posted messages in your area.  List can be sorted by proximity, most recent, and highest rated. Touching a message will bring up that message's expanded information page.
+    </p>
+  </div>
+
+  <div class="scribaFeature">
+    <img src="scribaClientPost.png">
+    <p>Posted message's expanded information page shows the massages map location, author, full message, how long ago it was posted, and total vote count.  Users also can vote the message up or down from here.
+    </p>
+  </div>
 </div>
+
 
 <div>
-<h2>Problem This Solves</h2>
-<p>The need to post a public message without vandalizing or littering. </p>
+  <h2>Problem This Solves</h2>
+  <p>The need to post a public message without vandalizing or littering. </p>
 </div>
+
 
 <div>
-<h2>Uses</h2>
-<p><ul>
-  <li>lost pets</li>
-  <li>yard sales</li>
-  <li>special events</li>
-  <li>tourism info</li>
-  <li>funny comments</li>
-  <li>helpful info</li>
-  <li>food recommendations</li>
-  <li>warnings</li>
-  <li>hazards</li>
-  <li>political comments</li>
-  <li>tagging</li>
-  <li>promotion</li>
-  <li>places to check out</li>
-  <li>places to avoid</li>
-  <li>trivia</li>
-  <li>location history</li>
-  <li>ask for help</li>
-  <li>offer help</li>
-  <li>street performing</li>
-  <li>advertising</li>
-  <li>conversations</li>
-  <li>for sale</li>
-  <li>treasure hunts</li>
-  <li>geocaching</li>
-  <li>anything!</li>
-</ul></p>
+  <h2>Uses</h2>
+  <ul>
+    <li>lost pets</li>
+    <li>yard sales</li>
+    <li>special events</li>
+    <li>tourism info</li>
+    <li>funny comments</li>
+    <li>helpful info</li>
+    <li>food recommendations</li>
+    <li>hazards</li>
+    <li>tagging</li>
+    <li>political comments</li>
+    <li>places to check out</li>
+    <li>places to avoid</li>
+    <li>trivia</li>
+    <li>location history</li>
+    <li>ask for help</li>
+    <li>offer help</li>
+    <li>street performing</li>
+    <li>chat</li>
+    <li>advertising</li>
+    <li>for sale</li>
+    <li>treasure hunts</li>
+    <li>geocaching</li>
+    <li>anything!</li>
+  </ul>
 </div>
-
-
-<!--
-  our app yay (vid)
-This is Scriba
-icon messages yaya
-dog sad
-dog found yay
-clicking on shows (location and expanded info)
-
-...
-MewTwo spotted!!!!111!!!~!!
-
-
-post your own message (Den)
--categories
--subcategory
-
-login (Den)
--account options
--username
-
-posts page (St)
--voting
--sorting
--modal?
-
-profile page (C)
--stuff
--and things
--->
-
-
-
 
 
 <h2> Development Team </h2>
 <ul>
-<li><b>Poduct Owner:</b> Dan Burke</li>
-<li><b>Scrum Master:</b> Dennis Nguyen</li>
-<li><b>Engineer:</b> Stephen Om</li>
-<li><b>Engineer:</b> Cai Lu</li>
+  <li><b>Poduct Owner -</b> Dan Burke</li>
+  <li><b>Scrum Master -</b> Dennis Nguyen</li>
+  <li><b>Engineer -</b> Stephen Om</li>
+  <li><b>Engineer -</b> Cai Lu</li>
 </ul>
 
 
-<h2>See It Here</h2>
+<h2>GitHub</h2>
 <p>
 The Scriba mobile app client-side can be found at:
-<p class="ind"><a href="https://github.com/d-burke/ScribaClient">https://github.com/d-burke/ScribaClient</a></p>
+<p><a href="https://github.com/Wizards2016/ScribaClient">Scriba Client</a></p>
 </p>
 <p>
 The Scriba mobile app server can be found at:
-<p class="ind"><a href="https://github.com/Wizards2016/ScribaServer">https://github.com/Wizards2016/ScribaServer.</a></p>
+<p><a href="https://github.com/Wizards2016/ScribaServer">Scriba Server</a></p>
 </p>
-
-
-
 
 
 </body>
