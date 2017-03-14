@@ -10,11 +10,105 @@ Creator: Dan Burke
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <style type="text/css">
+
+@import url('https://fonts.googleapis.com/css?family=Oswald');
+
+body {
+  background-color: #20598C;
+}
+
+
+
+.navbar {
+  position: fixed;
+  margin: 0;
+  top: 0; right: 0; bottom: 0; left: 0;
+
+}
+
+.navbar a:link {
+  text-decoration: none;
+  color:inherit;
+}
+.navbar a:visited {
+  text-decoration: none;
+  color:inherit;
+}
+.navbar a:hover {
+  text-decoration: none;
+  color:inherit;
+}
+.navbar a:active {
+  text-decoration: none;
+  color:inherit;
+}
+.navbar a:focus {
+  text-decoration: none;
+  color:inherit;
+}
+
+.navbar ul {
+  width: 100%;
+  margin: 0;
+  font-family: 'Oswald', sans-serif;
+  box-sizing: border-box;
+  display: table;
+  white-space: nowrap;
+  background-color: #286EB4;
+  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#6899ca+0,4ea1e5+24,3b88d4+50,3c82c9+79,6899ca+100
+  background: rgb(104,153,202); /* Old browsers */
+  background: -moz-linear-gradient(top,  rgba(104,153,202,1) 0%, rgba(78,161,229,1) 24%, rgba(59,136,212,1) 50%, rgba(60,130,201,1) 79%, rgba(104,153,202,1) 100%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(top,  rgba(104,153,202,1) 0%,rgba(78,161,229,1) 24%,rgba(59,136,212,1) 50%,rgba(60,130,201,1) 79%,rgba(104,153,202,1) 100%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to bottom,  rgba(104,153,202,1) 0%,rgba(78,161,229,1) 24%,rgba(59,136,212,1) 50%,rgba(60,130,201,1) 79%,rgba(104,153,202,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#6899ca', endColorstr='#6899ca',GradientType=0 ); /* IE6-9 */
+}
+
+.navbar li {
+  font-size: 25px;
+  display: table-cell;
+  color: #081624;
+  text-shadow: -1px 0 #93b6d9, 0 1px #93b6d9, 1px 0 #93b6d9, 0 -1px #93b6d9;
+  padding-left: 1vh;
+  padding-right: 1vh;
+  padding-top: 2vh;
+  padding-bottom: 2vh;
+}
+
+.navbar li a:hover {
+  color: #eee;
+  text-shadow: -1px 0 #000000, 0 1px #000000, 1px 0 #000000, 0 -1px #000000;}
+
+@media only screen and (max-device-width: 426px) {
+  .navbar li {
+    font-size: 15px;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .navbar li {
+    font-size: 25px;
+  }
+}
+
+
+/*#body_container{
+   top-margin: 15vh;
+}*/
+
+
 </style>
 </head>
 
 
 <body style = "font-family:'Helvetica'" bgcolor="black">
+
+<div class="navbar">
+  <ul>
+    <li><a href="index.html">Home</a></li>
+  </ul>
+</div>
+
+<br><br><br>
 
 <div id="body_container">
 
