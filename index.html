@@ -100,7 +100,7 @@ div {
 
 .canvasContainer {
   width:40%;
-  height: 28%;
+  height: 24.5%;
   margin: 1vh;
   top:5%;
   left:2vw;
@@ -439,7 +439,7 @@ div {
 
 <script type="text/javascript">
 
-//hover on navbar increases corresponding desk icon size
+// hover on navbar increases corresponding desk icon size
 const deskIcons = {resume: true, github: true, emailme: true, linkedIn: true};
 var focus;
 
@@ -479,7 +479,7 @@ document.getElementsByClassName('navbar')[0].addEventListener('mouseout', functi
 <div id="desk"></div>
 
 
-<div id="resume" class="resume">
+<div id="resume" class="resume" title="Resume">
   <!-- <object data="DanBurke_Resume.pdf#scrollbar=0&toolbar=0&view=fitBH" type="application/pdf" height="100%" width="100%">
   </object> -->
   <a href="DanBurke_Resume.pdf" target="_blank">
@@ -489,34 +489,34 @@ document.getElementsByClassName('navbar')[0].addEventListener('mouseout', functi
 
 
 <div id="github" class="github">
-  <a href="https://github.com/d-burke" target="_blank">
+  <a href="https://github.com/d-burke" title="GitHub">
     <img src="octocat.png">
   </a>
 </div>
 
 
-<div id="emailme" class="emailme">
+<div id="emailme" class="emailme" title="Email Me">
   <a href="mailto:dan.burke.software.engineer@gmail.com">
     <img src="envelopeemailme.png">
   </a>
 </div>
 
 
-<div id="scribaCell" class="scribaCell">
+<div id="scribaCell" class="scribaCell" title="Mobile Messaging App">
   <a href="http://www.danburkesoftwareengineer.com/scriba.html">
     <img src="scribaClientMapview.png">
   </a>
 </div>
 
 
-<div id="linkedIn" class="linkedIn">
+<div id="linkedIn" class="linkedIn" title="LinkedIn">
   <a href="https://www.linkedin.com/in/dan-burke/" target="_blank">
     <img src="linkedin-icon.png">
   </a>
 </div>
 
 
-<div id="morsecode" class="morsecode">
+<div id="morsecode" class="morsecode" title="Morse Code Translator">
   <a href="http://www.danburkesoftwareengineer.com/morsecode.html">
     <img src="telegraphkey.png">
   </a>
@@ -527,7 +527,7 @@ document.getElementsByClassName('navbar')[0].addEventListener('mouseout', functi
 
 <script type="text/javascript">
 
-  //if mobile, do not display whiteboard
+  // if mobile, do not display whiteboard
   testExp = new RegExp('Android|webOS|iPhone|iPad|' +
    'BlackBerry|Windows Phone|'  +
    'Opera Mini|IEMobile|Mobile' ,
@@ -538,7 +538,7 @@ document.getElementsByClassName('navbar')[0].addEventListener('mouseout', functi
   };
 
 
-  //if chrome and not mobile, display 3d perspective
+  // if chrome and not mobile, display 3d perspective
   var isChrome = /Chrome/.test(navigator.userAgent) && /Google Inc/.test(navigator.vendor);
   if(isChrome && !isMobile) {
     document.getElementsByTagName('body')[0].className = 'initPerspective';
@@ -549,7 +549,7 @@ document.getElementsByClassName('navbar')[0].addEventListener('mouseout', functi
   };
 
 
-  //white board canvas
+  // white board canvas
   var canvas, ctx, flag = false,
     prevX = 0,
     currX = 0,
