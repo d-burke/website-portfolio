@@ -42,9 +42,6 @@
 
 
 
-
-
-
 <script>
 
 // game start
@@ -52,7 +49,6 @@
 // play sequence
 // allow input, check each elem against array
 //   wrong then game ends, all right then add level (loop 'play sequence')
-
 
 
 
@@ -77,51 +73,31 @@ var newGame=function()
    nextLevel();
    showInput();
    showComputer();
+   checkLoseWin();
 };
 
 
-/* Button Function */
-var btn1=function(e)
-{
-   console.log(e);
-   if(gameStart || !gameStart)
-   {
-      sequenceInput.push(1);
-      showInput();
-      checkLoseWin();
-   };
-};
+/* Button Function - input for sequenceInput */
+var btn1=function()
+   { userInput(1); };
 
 var btn2=function()
-{
-   if(gameStart || !gameStart)
-   {
-      sequenceInput.push(2);
-      showInput();
-      checkLoseWin();
-   };
-};
+   { userInput(2); };
 
 var btn3=function()
-{
-   if(gameStart || !gameStart)
-   {
-      sequenceInput.push(3);
-      showInput();
-      checkLoseWin();
-   };
-};
+   { userInput(3); };
 
 var btn4=function()
-{
+   { userInput(4); };
+
+var userInput=function(id){
    if(gameStart || !gameStart)
    {
-      sequenceInput.push(4);
+      sequenceInput.push(id);
       showInput();
       checkLoseWin();
    };
-};
-
+}
 
 
 /* showInput - displays input to div id showInput*/
@@ -144,26 +120,34 @@ var nextLevel=function()
    // make array (add one per level)
    var randNum = Math.floor((Math.random()*(rNumMax-rNumMin+1)))+rNumMin;
    sequenceComputer.push(randNum);
+   sequenceInput = [];
+   showInput();
    showComputer();
+   setTimeout(checkLoseWin, 0); // setTimeout solves asynchronous issue concerning sequenceComputer.length
 };
 
 
 var checkLoseWin = function(){
    gameStart = true;
-   for (var i = sequenceComputer.length - 1; i >= 0; i--) {
+   for (var i = sequenceInput.length - 1; i >= 0; i--) {
       if(sequenceComputer[i] !== sequenceInput[i]){
          gameStart = false;
       }
    }
-   var gameStatus = "Level: " + sequenceComputer.length + " Game Over.";
-   if(gameStart){
+   var gameStatus = "Level: " + sequenceComputer.length;
+   if(gameStart && sequenceInput.length === sequenceComputer.length){
       gameStatus = "Level: " + sequenceComputer.length;
       nextLevel();
-   }
+   } else if (!gameStart){
+         gameStatus += " Lost. Game Over.";
+      }
    document.getElementById("showWL").innerHTML=gameStatus;
 };
 
 
+
+// var audio = new Audio('audio_file.mp3');
+// audio.play();
 
 </script>
 
