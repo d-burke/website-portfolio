@@ -9,15 +9,175 @@
 </head>
 <body style="background-color:#28282f; color:#aaaaaa">
 
+
+<!--title-->
+<center>
+<h1>Simon Flower</h1>
+
+
+<!-- buttons -->
+<button onclick="newGame()">New Game</button>
+<button class="button1" id="button1" onclick="btn1()">one</button>
+<button class="button2" id="button2" onclick="btn2()">two</button>
+<button class="button3" id="button3" onclick="btn3()">three</button>
+<button class="button4" id="button4" onclick="btn4()">four</button>
+<button onclick="nextLevel()">Add Level</button>
+<br>
+
+<!-- Game Condition Display -->
+<button onclick="showInput()">showInput</button>
+<h2> Show Input:
+   <div id="showInput"></div>
+</h2>
+
+<button onclick="showComputer()">showComputer</button>
+<h2> Current Sequence:
+   <div id="showComputer"></div>
+</h2>
+
+<h2> Status Win/Lose/Pending:
+   <div id="showWL"></div>
+</h2>
+
+
+
+
+
+
 <script>
 
 // game start
 // make array (add one elem per level)
 // play sequence
 // allow input, check each elem against array
-//   wrong then game ends, all right then add level
+//   wrong then game ends, all right then add level (loop 'play sequence')
+
+
+
+
+/* Global Variables */
+var gameStart = true;
+var rNumMin = 1;
+var rNumMax = 4;
+var sequenceComputer = [];
+var sequenceInput = [];
+
+var gameLives=1; //lives remaining, 0 is game over
+var timeCount=0; //used for counting time
+var playSpeed=10; //multiplier to playback pace.
+
+
+/* newGame - Starts new game, reset all variables*/
+var newGame=function()
+{
+   gameStart = true;
+   sequenceComputer = [];
+   sequenceInput = [];
+};
+
+
+/* Button Function */ //button functions
+
+var btn1=function(e)
+{
+   console.log(e);
+   if(gameStart)
+   {
+      sequenceInput.push("1");
+      showInput();
+      checkLoseWin();
+   };
+};
+
+var btn2=function()
+{
+   if(gameStart)
+   {
+      sequenceInput.push("2");
+      showInput();
+      checkLoseWin();
+   };
+};
+
+var btn3=function()
+{
+   if(gameStart)
+   {
+      sequenceInput.push("3");
+      showInput();
+      checkLoseWin();
+   };
+};
+
+var btn4=function()
+{
+   if(gameStart)
+   {
+      sequenceInput.push("4");
+      showInput();
+      checkLoseWin();
+   };
+};
+
+
+//next level
+
+
+/* showInput - displays input to div id showInput*/
+var showInput=function()
+{
+   document.getElementById("showInput").innerHTML=sequenceInput;
+};
+
+
+/* showComputer - displays computer sequence to div id showComputer*/
+var showComputer=function()
+{
+   document.getElementById("showComputer").innerHTML=sequenceComputer;
+};
+
+
+/* nextLevel - adds new level, updates display, calls function playTime*/
+var nextLevel=function()
+{
+   // make array (add one per level)
+   var randNum = Math.floor((Math.random()*(rNumMax-rNumMin+1)))+rNumMin;
+   sequenceComputer.push(randNum);
+   checkLoseWin();
+};
+
+
+var checkLoseWin = function(){
+   for (var i = sequenceComputer.length - 1; i >= 0; i--) {
+      if(sequenceComputer[i] !== sequenceInput[i]){
+         gameStart = false;
+      }
+   }
+   var gameStatus = "Game Over.  Level: " + sequenceComputer.length;
+   if(gameStart){
+      gameStatus = "Level: " + sequenceComputer.length;
+   }
+   document.getElementById("showWL").innerHTML=gameStatus;
+};
+
+
+
 
 </script>
 
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
