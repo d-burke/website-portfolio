@@ -35,6 +35,7 @@
    <div id="showComputer"></div>
 </h2>
 
+<button onclick="checkLoseWin()">checkLoseWin</button>
 <h2> Status Win/Lose/Pending:
    <div id="showWL"></div>
 </h2>
@@ -73,17 +74,19 @@ var newGame=function()
    gameStart = true;
    sequenceComputer = [];
    sequenceInput = [];
+   nextLevel();
+   showInput();
+   showComputer();
 };
 
 
-/* Button Function */ //button functions
-
+/* Button Function */
 var btn1=function(e)
 {
    console.log(e);
-   if(gameStart)
+   if(gameStart || !gameStart)
    {
-      sequenceInput.push("1");
+      sequenceInput.push(1);
       showInput();
       checkLoseWin();
    };
@@ -91,9 +94,9 @@ var btn1=function(e)
 
 var btn2=function()
 {
-   if(gameStart)
+   if(gameStart || !gameStart)
    {
-      sequenceInput.push("2");
+      sequenceInput.push(2);
       showInput();
       checkLoseWin();
    };
@@ -101,9 +104,9 @@ var btn2=function()
 
 var btn3=function()
 {
-   if(gameStart)
+   if(gameStart || !gameStart)
    {
-      sequenceInput.push("3");
+      sequenceInput.push(3);
       showInput();
       checkLoseWin();
    };
@@ -111,16 +114,14 @@ var btn3=function()
 
 var btn4=function()
 {
-   if(gameStart)
+   if(gameStart || !gameStart)
    {
-      sequenceInput.push("4");
+      sequenceInput.push(4);
       showInput();
       checkLoseWin();
    };
 };
 
-
-//next level
 
 
 /* showInput - displays input to div id showInput*/
@@ -143,23 +144,24 @@ var nextLevel=function()
    // make array (add one per level)
    var randNum = Math.floor((Math.random()*(rNumMax-rNumMin+1)))+rNumMin;
    sequenceComputer.push(randNum);
-   checkLoseWin();
+   showComputer();
 };
 
 
 var checkLoseWin = function(){
+   gameStart = true;
    for (var i = sequenceComputer.length - 1; i >= 0; i--) {
       if(sequenceComputer[i] !== sequenceInput[i]){
          gameStart = false;
       }
    }
-   var gameStatus = "Game Over.  Level: " + sequenceComputer.length;
+   var gameStatus = "Level: " + sequenceComputer.length + " Game Over.";
    if(gameStart){
       gameStatus = "Level: " + sequenceComputer.length;
+      nextLevel();
    }
    document.getElementById("showWL").innerHTML=gameStatus;
 };
-
 
 
 
