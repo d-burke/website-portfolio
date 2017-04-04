@@ -59,6 +59,7 @@ h1{margin-top: 15vh;}
 .scribaFeature {
   display: inline;
   width: 29%;
+  max-width: 280px;
   padding: 2%;
   /*margin:1%;*/
   float: left;
@@ -81,9 +82,8 @@ h1{margin-top: 15vh;}
 
 .scribaFeature p {
   /*margin: auto;*/
-  /*text-align: justify;*/
   /*display: block;*/
-  text-align: justify;
+  /*text-align: justify;*/
   /*margin: 1%;*/
   width: 100%;
   /*max-width: 280px;*/
@@ -203,26 +203,38 @@ h1{margin-top: 15vh;}
 
 <h1> Scriba </h1>
 
-<p> Mobile app that allows users to post and view messages on location. </p>
+<p>
+Scriba is a mobile app that allows users to post and view messages at locations the user is currently in. The app includes:
+</p>
+<ul style="max-width: 900px">
+  <li><b>Map view interface:</b> <br>The app displays nearby posted messages using Google Maps API.</li>
+<br>
+  <li><b>Categorization and filtering:</b> <br>Map icon images denotes the message's category. Tapping the icon brings up the expanded information for that post. </li>
+<br>
+  <li><b>Engagement and interaction tools:</b> <br>Users can tap the bottom right pencil icon to post their own message at their location. The posts page lists messages in the area. Tapping a message will bring up that message's expanded information page. The message page shows that message’s location, author, the message, time of submission, and its total votes.</li>
+<br>
+  <li><b>Sorted messages:</b> <br>Users can sort messages based on their distance, time of posting, or by their rating.</li>
+</ul>
+
 
 
 <div class="scribaDescription">
   <div class="scribaFeature">
     <img src="scribaClientMapview.png">
-    <p>Features a large GPS map populated with icons of neaby posted messages.  Map icon images denotes the message's catagory and tapping the icon brings up the expanded information for that post.  Tap the bottom right pencil icon to post your own message to your current GPS location.
-    </p>
+<!--     <p>Features a large GPS map populated with icons of neaby posted messages.  Map icon images denote the message's category and tapping the icon brings up the expanded information for that post.  Tap the bottom right pencil icon to post your own message to your current GPS location.
+    </p> -->
   </div>
 
   <div class="scribaFeature">
     <img src="scribaClientNearby.png">
-    <p>The posts page lists messages in your area.  List can be sorted by distance from you, most recent, or highest rated. Tapping a message will bring up that message's expanded information page.
-    </p>
+<!--     <p>The posts page lists messages in your area.  List can be sorted by distance from you, most recent, or highest rated. Tapping a message will bring up that message's expanded information page.
+    </p> -->
   </div>
 
   <div class="scribaFeature">
     <img src="scribaClientPost.png">
-    <p>Expanded information page shows that massage's location, author, full message test, how long ago it was posted, and its total votes.
-    </p>
+<!--     <p>Expanded information page shows that massage's location, author, full message test, how long ago it was posted, and its total votes.
+    </p> -->
   </div>
 </div>
 
@@ -246,14 +258,8 @@ h1{margin-top: 15vh;}
     <li>hazards</li>
     <li>tagging</li>
     <li>political comments</li>
-    <li>places to check out</li>
-    <li>places to avoid</li>
-    <li>trivia</li>
-    <li>location history</li>
-    <li>ask for help</li>
-    <li>offer help</li>
+    <li>location history trivia</li>
     <li>street performing</li>
-    <li>chat</li>
     <li>advertising</li>
     <li>for sale</li>
     <li>treasure hunts</li>
@@ -269,6 +275,18 @@ h1{margin-top: 15vh;}
   <li><b> Dennis Nguyen -</b> Scrum Master </li>
   <li><b> Stephen Om - </b> Engineer </li>
   <li><b> Cai Lu - </b> Engineer </li>
+</ul>
+
+
+<h2> Development Software Used </h2>
+<ul>
+  <li>Front End - <br>
+  React Native, React, Xcode, NPM, Grunt, ESLint, Bluebird
+  </li>
+  <br>
+  <li>Back End - <br>
+  MySQL, Sequelize, Node, Express, NPM, Grunt, ESLint, Mocha, Chai
+  </li>
 </ul>
 
 
